@@ -3,7 +3,8 @@ Use google cloud Natural Language API to detect the sentiment of a book recomend
 return a score and a megnitude of the sentiment for the entire passage 
 Use twitter api to print out all the tweets from a user, and search tweets using keyword
 # MVP
-A program that takes a user's input key word and ouput a sentiment scale. The key word will be input to the search function from the Twitter api.
+A program that takes anyone's input key word and ouput a sentiment scale of how people in the US feel about the key word. 
+The key word will be input to the search function from the Twitter api.
 The result from twitter api will be feed into google nlp. The user will know the sentiment of other people in the world on the key word.
 
 
