@@ -1,4 +1,5 @@
 import tweetGoogle as tg
+import Gcloud
 
 def test_long():
 	x='''asdfqwaoiefhjqwoeifhqoweijfo[eirhvdcvuh-8917450ij-08d7fdfghjnqpeoruhgqerg
@@ -33,3 +34,26 @@ rfquioerbfhnpqeruhjfbnp;qerfhbqrp;iofhqep;rofhpqouih13op4uihnf13
  gergqerwgqergrthk67k46k467k467k467k467k467k467k467k467k
  467k467k467k467k467k46k467k467k467k467k6k'''
 	assert tg.main(x)
+	
+def test_NLP():
+	'''feed more than 1 text into google NLP
+	and see if google can handle it.'''
+	
+	x = '''2joijr028fckf0mmiwrh98y4n208f3
+	sdfjoqiewjfi2j2fp34fu109u3fiojrdsjfhpqiuewhfqjwkfnpoeiuvt
+	whui24j2oifjiurewpncepwiurhvepwurhq
+	dslkfjkjwfowejfweofijewoifwjef
+	'''
+	y = '''fjoiewjfwieofjiwjvoesjfdv;oijwadkjhasdlkjfh
+	askdjfhaskdjfhalskjdf'''
+	z ='''aksjfakjdhfa;skdjf
+	daflkjhaldskjhflkasjdjf'''
+	IN = [x,y,z]
+	assert Gcloud.anaSentiment(IN)
+	
+def test_score():
+	'''test what will happend if google NLP did not produce a output'''
+	x = None
+	assert tg.score(x)
+	
+	
