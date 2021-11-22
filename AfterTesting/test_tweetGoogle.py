@@ -1,5 +1,7 @@
 import tweetGoogle as tg
 import Gcloud
+import benchmark
+
 
 def test_long():
 	x='''asdfqwaoiefhjqwoeifhqoweijfo[eirhvdcvuh-8917450ij-08d7fdfghjnqpeoruhgqerg
@@ -55,5 +57,22 @@ def test_score():
 	'''test what will happend if google NLP did not produce a output'''
 	x = None
 	assert tg.score(x)
+	
+def test_perform_NLP(benchmark):
+	'''test the speed of the google NLP with a really large text'''
+	
+	x = '''3hepihepfaoijdapijepqojfqph4fpo1ih24fadsjfalksdjhfkjhfdkasjf
+	sakdjfhaksjdhfksjdhfhqjfnpqiu4fndsjfhahufpqoiuewhfpqiwenpiuwfeq
+	fieuhfpqiwnfepiquwedpiwqjendpiquwepieajnipnfapiurfpaierug
+	qerihreapufreqkcmpeqoiuhqpufqeihupiuhpiuhpiuhiuhiuhiuh
+	uhg8yggygygjoijowiejowkdweikdwejdiewjeidwkx0wicj0tgrgrfw
+	cerfrefe;rforek384j08r53jr93jfeijwoivwpfjowekfeoifkoekieorifjvmmvmvfv
+	eerfreofroifoikoeirkfpirkfp23f2.rkfkf.erfk0rf0.erf0erf0e9.c0e9irf0re9if0e9rif0rife
+	er 0ire0feoijfoerfjcofjoejorijfoeirjf3j49jr48394rj4938r3498jr4r3odcdcdcdcwcw
+	eweewfrg53hg5ggf3ut45h093u50tu958j87h9khjuu9j
+	uj9k9okijuhynjuikjnhbgv6rcr6vb7n8mjk,ol'''
+	IN = x + x + x + x + x + x +x + x + x + x + x + x + x + x + x + x + x + x +x + x + x + x + x + x + x
+	
+	benchmark(Gcloud.anaSentiment(IN), 0.1)
 	
 	
