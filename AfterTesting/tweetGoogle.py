@@ -7,7 +7,19 @@ import tweet
 import Gcloud
 import sys
 
-
+def score(outNLP):
+	if outNLP[0] <= -0.6:
+		return print('people are showing a lot of negative sentiment')
+	elif -0.6 < outNLP[0] <= -0.25:
+		return print('people are showing few negative sentiment')
+	elif -0.25 < outNLP[0] <= 0.25:
+		return print('people are showing natural sentiment')
+	elif 0.25 < outNLP[0] <= 0.6:
+		return print('people are showing few positive sentiment ')
+	elif outNLP[0] > 0.6:
+		return print('people are showing a lot of positive sentiment')
+	elif outNLP = None:
+		return print('error from NLP')
 
 def main(name):
 	
@@ -19,16 +31,7 @@ def main(name):
 		else:
 			out = Gcloud.anaSentiment(searchOut)
 			#print(out)
-			if out[0] <= -0.6:
-				print('people are showing a lot of negative sentiment')
-			elif -0.6 < out[0] <= -0.25:
-				print('people are showing few negative sentiment')
-			elif -0.25 < out[0] <= 0.25:
-				print('people are showing natural sentiment')
-			elif 0.25 < out[0] <= 0.6:
-				print('people are showing few positive sentiment ')
-			elif out[0] > 0.6:
-				print('people are showing a lot of positive sentiment')
+			score(out)
 	except:
 		print('twitter API does not like what you typed')
 
